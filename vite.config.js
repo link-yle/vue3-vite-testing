@@ -2,31 +2,12 @@ import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 /* eslint-disable prettier/prettier */
-import viteSentry from 'vite-plugin-sentry'
 import path from 'path'
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '')
+  // const env = loadEnv(mode, process.cwd(), '')
   const plugins = [vue()]
 
-  if (mode === 'production') {
-    plugins.push(
-      viteSentry({
-        authToken: env.VITE_SENTRY_AUTH_TOKEN,
-        org: 'scanlab',
-        project: 'scanlabct-web',
-        deploy: {
-          env: env.CONTEXT === 'production' ? 'production' : 'staging',
-        },
-        setCommits: {
-          auto: true,
-        },
-        sourceMaps: {
-          include: ['./dist/assets'],
-        },
-      }),
-    )
-  }
   return {
     plugins,
     optimizeDeps: {
