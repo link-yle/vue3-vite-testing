@@ -23,7 +23,7 @@ import heatmap from 'highcharts/modules/heatmap'
 import bellcurve from 'highcharts/modules/histogram-bellcurve'
 import regression from 'highcharts-regression'
 import 'icons/styles.css'
-import './style.css'
+import './assets/main.css'
 
 const scanlabCtTheme = {
   themes: {
